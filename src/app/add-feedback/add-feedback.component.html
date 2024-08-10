@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Submit Your Feedback</h2>
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <!-- Name Field -->
+    <label for="user">Name:</label>
+    <input id="user" type="text" formControlName="user" />
+    <div *ngIf="feedbackForm.get('user')?.invalid && feedbackForm.get('user')?.touched" class="error">
+      <!-- Required Field Error -->
+      <span *ngIf="feedbackForm.get('user')?.errors?.['required']">Name is required.</span>
+      <!-- Min Length Error -->
+      <span *ngIf="feedbackForm.get('user')?.errors?.['minlength']">Name must be at least 3 characters.</span>
+    </div>
+
+    <!-- Feedback Field -->
+    <label for="message">Feedback:</label>
+    <textarea id="message" formControlName="message"></textarea>
+    <div *ngIf="feedbackForm.get('message')?.invalid && feedbackForm.get('message')?.touched" class="error">
+      <!-- Required Field Error -->
+      <span *ngIf="feedbackForm.get('message')?.errors?.['required']">Feedback is required.</span>
+      <!-- Min Length Error -->
+      <span *ngIf="feedbackForm.get('message')?.errors?.['minlength']">Feedback must be at least 5 characters.</span>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!feedbackForm.valid">Submit Feedback</button>
+  </form>
+</div>

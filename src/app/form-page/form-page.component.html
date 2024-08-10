@@ -1,0 +1,9 @@
+<div class="container">
+  <app-add-feedback (addFeedback)="addFeedback($event)"></app-add-feedback>
+
+  <h2>Feedback List</h2>
+  <div *ngFor="let feedback of feedbacks" class="feedback-item">
+    <h3>{{ feedback.user }} <small>{{ feedback.date | date:'short' }}</small></h3>
+    <p>{{ feedback.message }}</p>
+  </div>
+</div>

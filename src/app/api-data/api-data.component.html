@@ -1,0 +1,13 @@
+<h2>User List</h2>
+<button (click)="addNewUser()">Add User</button>
+<button (click)="updateUser()">Update User</button>
+<button (click)="deleteUser()">Delete User</button>
+
+<div *ngFor="let user of users; trackBy: user.id">
+  <p>ID - {{ user.id }}</p>
+  <p>Name - {{ user.first_name }} {{ user.last_name }}</p>
+  <p>Email - {{ user.email }}</p>
+  <img [src]="user.avatar" alt="{{ user.first_name }}'s avatar">
+  <hr />
+</div>
+
