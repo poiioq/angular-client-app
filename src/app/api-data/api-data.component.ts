@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { UserService, IUser } from '../services/user.service';
-import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'api-data',
   standalone: true,
   templateUrl: './api-data.component.html',
   styleUrls: ['./api-data.component.css'],
+  imports: [CommonModule]
 })
 export class UserComponent implements OnInit {
   users: IUser[] = [];
@@ -14,7 +15,9 @@ export class UserComponent implements OnInit {
   constructor(private _userService: UserService) {}
 
   ngOnInit(): void {
-    this._userService.getUsers().subscribe((response) => {this.users = response.data;})
+    this._userService.getUsers().subscribe((response) => {
+      this.users = response.data || []; 
+    });
   }
 
   addNewUser() {

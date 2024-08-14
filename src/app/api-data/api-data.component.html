@@ -3,11 +3,16 @@
 <button (click)="updateUser()">Update User</button>
 <button (click)="deleteUser()">Delete User</button>
 
-<div *ngFor="let user of users; trackBy: user.id">
-  <p>ID - {{ user.id }}</p>
-  <p>Name - {{ user.first_name }} {{ user.last_name }}</p>
-  <p>Email - {{ user.email }}</p>
-  <img [src]="user.avatar" alt="{{ user.first_name }}'s avatar">
-  <hr />
+<div *ngIf="users && users.length > 0">
+  <div *ngFor="let user of users">
+    <p>ID - {{ user.id }}</p>
+    <p>Name - {{ user.first_name }} {{ user.last_name }}</p>
+    <p>Email - {{ user.email }}</p>
+    <img [src]="user.avatar" alt="{{ user.first_name }}'s avatar">
+    <hr />
+  </div>
 </div>
+<p *ngIf="users && users.length === 0">No users available.</p>
+
+
 

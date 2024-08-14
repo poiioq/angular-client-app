@@ -1,0 +1,39 @@
+/* Navigation Bar Container */
+nav {
+    background-color: #333;  /* Dark background color */
+    padding: 10px 20px;
+    text-align: center;  /* Center the content */
+  }
+  
+  /* Navigation Links */
+  nav ul {
+    list-style-type: none;  /* Remove bullets from list */
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;  /* Display list items horizontally */
+    margin-right: 15px;  /* Add spacing between links */
+  }
+  
+  nav ul li a {
+    color: white;  /* White text color */
+    text-decoration: none;  /* Remove underline from links */
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;  /* Smooth transition for hover */
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;  /* Slightly lighter background on hover */
+  }
+  
+  /* Active Link Styling */
+  nav ul li a.active {
+    background-color: #007BFF;  /* Highlight active link with a blue background */
+    color: white;
+    border-radius: 4px;
+  }
+  
